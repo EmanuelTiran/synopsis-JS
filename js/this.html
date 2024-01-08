@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- <script>
+    const dadCall = () => {
+        const call1 = () => {
+
+            let sayHello = function (country) {
+                console.log('Hello! My name is ' + this.name + ' and I\'m from ' + country);
+            }
+
+            let david = {
+                name: 'David'
+            }
+
+            let maria = {
+                name: 'mery'
+            }
+
+            sayHello.call(mery, 'Italy'); // Hello! My name is mery  and I\'m from Italy
+        }
+        const call2 = () => {
+            let david = {
+                name: 'David',
+                country: 'Germany',
+                sayHello: function () {
+                    console.log('Hello! My name is ' + this.name + ' and I\'m from ' + this.country);
+                }
+            };
+
+            let mery = {
+                name: 'mery',
+                country: 'Italy'
+            };
+
+            david.sayHello.call(mery); // Hello! My name is mery  and I\'m from Italy || replace the "this" of david with "mery"
+        }
+    }
+
+
+    const dadApply = () => { // same as above just that with arr
+        let sayHello = function (age, country) {
+            console.log('Hello! My name is ' + this.name + ', I\`m ' + age + ' years old and I\'m from ' + country);
+        }
+
+        let david = {
+            name: 'David'
+        }
+
+        sayHello.apply(david, [29, 'Germany']); // Hello! My name is David I\`m  29 years old and I\'m from ' + Germany
+
+    }
+
+    const dadBind = () => {
+        let sayHello = function (age, country) {
+            console.log('Hello! My name is ' + this.name + ', I\`m ' + age + ' years old and I\'m from ' + country);
+        }
+
+        let david = {
+            name: 'David'
+        }
+
+        let davidSayHello = sayHello.bind(david, 29, 'Germany');
+        davidSayHello();
+    }
+
+</script> -->
+<script>
+    let pet1 = {
+        name: "pigy",
+        age: 3,
+        type: "pig"
+    }
+    let pet2 = {
+        name: "dogy",
+        age: 29,
+        type: "dog"
+    }
+    let petActions = {
+        printPet: function () {
+            console.log("my name is:" + this.name + "  my age is:" + this.age);
+        },
+        gram: function (x) {
+            console.log(0.1 * x * this.age);
+        }
+    }
+    petActions.printPet.call(pet2);
+    petActions.gram.call(pet1, 300);
+
+
+    // Q6
+    function addToArr3() {
+        let num = prompt("הכנס מספר");
+        let arr = [];
+        while (num != 0) {
+            if (num % 3 === 0) {
+                arr.push(num);
+            }
+        num = prompt("הכנס מספר");
+        }
+        console.log(arr);
+        return;
+    }
+
+    addToArr3();
+
+</script>
+
+</html>

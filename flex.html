@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        :root {
+            --blue: rgb(9, 104, 199);
+            --white: rgb(249, 194, 111);
+            --gvul: 9px double black;
+        }
+
+        .dad {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex;
+            align-content: start;
+            background-color: var(--white);
+            border: var(--gvul);
+        }
+
+        .a {
+            min-height: 100px;
+            width: 100px;
+            margin: 10px;
+            background-color: var(--blue);
+            border: 2px solid black;
+        }
+
+        .b {
+            min-height: 200px;
+            width: 100px;
+            margin: 10px;
+            background-color: rgb(9, 104, 199);
+            ;
+            border: 2px solid black;
+        }
+
+        .c {
+            line-height: 300px;
+            /*  דהיינו מלמעלה ומלמטה עושה גובה מהאמצע של הטקסט */
+            width: 100px;
+            margin: 10px;
+            background-color: rgb(9, 104, 199);
+            border: 2px solid black;
+            text-align: center;
+            color: var(--white);
+        }
+
+        /* .a,.b,.c{
+            flex: 3 1 100px;  // grow, shrink, base size...
+        } */
+        .flex-container {
+            /* מירכוז של אלמנט ממש באמצע הדיב */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: DodgerBlue;
+        }
+
+        .flex-container>div {
+            background-color: #F1F1F1;
+            color: white;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="dad">
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c">C</div>
+    </div>
+    <div class="flex-container">
+        <div></div>
+    </div>
+</body>
+
+</html>

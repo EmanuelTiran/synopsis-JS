@@ -1,0 +1,19 @@
+body{
+background-color: rgb(231, 243, 255);}
+div{
+    background-color: yellowgreen;
+    width: 60%;
+    font-size: 50px;
+    color:red;
+}
+.idDiv{
+    background-color: green;
+    color: pink;
+}
+#idDiv{
+    color: blueviolet;
+}
+#firstTd {
+    color: brown;
+    background-color: pink;
+}

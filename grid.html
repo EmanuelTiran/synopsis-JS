@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .grid-container {
+            display: grid;
+            /* row-gap: 500px;  */
+            grid-template-columns: repeat(3, auto);
+            /*=> auto auto auto*/
+            /*מגדיר לכמה עמודות אני מעוניין שיהיה לי בקונטיינר*/
+            /*אוטו'- מסדר את הגודל באופן אוטומט*/
+            grid-template-rows: auto auto auto;
+            /*מגדיר לכמה שורות אני מעוניין שיהיה לי בקונטיינר*/
+            gap: 50px 50px;
+            /*row-gap, column-gap */
+            background-color: rgb(98, 3, 98);
+            padding: 10px;
+            /*jhkhkh*/
+            width: 500px;
+            height: 500px;
+            /*justify-content:...;משמש ליישור כל הרשת בתוך המכולה */
+            /*align-content: center;משמש ליישור אנכי של כל הרשת בתוך המיכל*/
+        }
+
+        .grid-item {
+            display: flex;
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            border: 2px solid #B0C4DE;
+            padding: 2px;
+            font-size: 70px;
+            justify-content: center;
+            align-items: center
+        }
+
+        #item6 {
+            /* grid-column: 2 / 4; */
+            /* להשתרע מעמודה 2 עד 4 לא כולל*/
+            grid-row: 2 / 4;
+            /* להשתרע משורה 2 עד 4 לא כולל*/
+            grid-area: 2 / 4 5/6;
+            /* להשתרע ממשבצת שורה 2 עמודה 4 עד שורה חמש ל כולל עמודה 6 לא כולל */
+            order: -1;
+            /* שם את האלמנט בסדר העדיפויות לפני כולם(ערך ברירת המחדל של כולם הוא 0)*/
+        }
+
+        #menu {
+            width: 50px;
+            height: 150px;
+            background-color: black;
+            display: none;
+        }
+
+        #item1:target {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item" id="item1">1
+        </div>
+        <div id="menu"></div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item" id="item6">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+
+</body>
+<script>
+    const colors = ["rgb(19, 111, 111)", "skyblue", " rgb(0, 183, 255)", " rgb(0, 106, 255)",
+        "grey", "black", " rgb(0, 106, 255)", "blue", "purple", "brown", "Lightblue"];
+    const changeColor = document.getElementById("item6");
+    changeColor.addEventListener("click", function () {
+        const ran2 = Math.floor(Math.random() * 10)
+        changeColor.style.backgroundColor = colors[ran2];
+        changeColor.innerHTML = colors[ran2];
+    })
+    const parent = document.getElementsByClassName("grid-container");
+    parent.appendChild(name1);
+</script>
+
+</html>

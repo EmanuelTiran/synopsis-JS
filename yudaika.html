@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @media screen and (max-width:800px) {
+        body {
+            background-color: brown;
+            display: flex;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+            margin-left: auto;
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+        }
+
+        img {
+            width: 450px;
+            height: auto;
+        }
+    }
+
+    #container {
+        border: 2px double rgb(0, 99, 146);
+        display: flex;
+        width: 1200px;
+        margin-right: auto;
+        margin-left: auto;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+    }
+
+    figure {
+        margin: 10px;
+
+    }
+
+    img {
+        height: 450px;
+        width: auto;
+    }
+    img:hover{
+        height: 550px;
+        transition: height 2s ease-in-out;
+    }
+
+    .name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        font-family: calibri;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <figure>
+            <img src="https://www.ysviva.org/wp-content/uploads/2020/09/beshaaraich-yerushalaim_crop_1.jpg" alt=""
+                srcset="">
+            <figcaption>
+                <div class="name">שערייך ירושלים</div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img
+                src="https://www.start-art.co.il/wp-content/uploads/2020/01/%D7%90%D7%A4%D7%A8%D7%AA-%D7%9E%D7%99%D7%A0%D7%A5-%D7%A9%D7%A0%D7%94-%D7%90-%D7%99%D7%95%D7%93%D7%90%D7%99%D7%A7%D7%94.jpg">
+            </figcaption>
+            <div class="name">שערייך ירושלים</div>
+            <figcaption>
+        </figure>
+        <figure>
+            <img src="https://www.start-art.co.il/wp-content/uploads/2020/01/bina_eisenberg1.jpg" alt="" srcset="">
+            <figcaption>
+                <div class="name">שערייך ירושלים</div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="https://i0.wp.com/jewish-painting.com/wp-content/uploads/2023/05/%D7%90%D7%9D-%D7%90%D7%A9%D7%9B%D7%97%D7%9A-%D7%A9%D7%97%D7%95%D7%A8.jpg?fit=800%2C800&ssl=1"
+                alt="" srcset="">
+            <figcaption>
+                <div class="name">שערייך ירושלים</div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="https://www.ysviva.org/wp-content/uploads/2020/09/beshaaraich-yerushalaim_crop_1.jpg" alt="">
+            <figcaption>
+                <div class="name">שערייך ירושלים</div>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="https://www.ysviva.org/wp-content/uploads/2020/09/beshaaraich-yerushalaim_crop_1.jpg" alt="">
+            <figcaption>
+                <div class="name">שערייך ירושלים</div>
+            </figcaption>
+        </figure>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Move Element with Arrow Keys</title>
+  <style>
+#myElement {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  transform: translate(0, 0);
+}
+  </style>
+</head>
+<body>
+  <div id="myElement"></div>
+  <script >
+    document.addEventListener('keydown', handleKeyDown);
+    function handleKeyDown(event) {
+        const element = document.getElementById('myElement');
+        element.style.left ="50px";
+        element.style.top ="50px";
+  const step = 10; // Number of pixels to move
+  switch (event.key) {
+    case 'ArrowUp':
+      element.style.top = (parseInt(element.style.top) - step) + 'px';
+      break;
+    case 'ArrowDown':
+      element.style.top = (parseInt(element.style.top) + step) + 'px';
+      break;
+    case 'ArrowLeft':
+      element.style.left = (parseInt(element.style.left) - step) + 'px';
+      break;
+    case 'ArrowRight':
+      element.style.left = (parseInt(element.style.left) + step) + 'px';
+      break;
+  }
+}
+  </script>
+</body>
+</html>

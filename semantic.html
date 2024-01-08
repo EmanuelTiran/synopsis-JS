@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        border: 1px solid black;
+    }
+
+    body {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 2px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #grid-container {
+        margin-top: 250px;
+        display: grid;
+        grid-template-columns: 20% auto;
+        grid-template-rows: auto auto auto auto auto;
+        gap: 50px 50px;
+        background-color: #0615226f;
+        padding: 10px;
+        width: 100%;
+        min-height: 200px;
+        /*justify-content:...;משמש ליישור כל הרשת בתוך המכולה */
+        /*align-content: center;משמש ליישור אנכי של כל הרשת בתוך המיכל*/
+    }
+
+    .header {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 2px;
+        font-size: 30px;
+        justify-content: center;
+        align-items: center;
+        grid-area: 1/1/1/3;
+        /* להשתרע ממשבצת שורה 2 עמודה 4 עד שורה חמש ל כולל עמודה 6 לא כולל */
+    }
+
+    .logo {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 2px;
+        font-size: 30px;
+        justify-content: center;
+        align-items: center;
+        grid-area: 2/1/2/1;
+        /* להשתרע ממשבצת שורה 2 עמודה 4 עד שורה חמש ל כולל עמודה 6 לא כולל */
+    }
+
+    .nav {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 2px;
+        font-size: 30px;
+        justify-content: center;
+        align-items: center
+    }
+
+    .aside {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 2px;
+        font-size: 30px;
+        justify-content: center;
+        align-items: center
+    }
+
+    .selection {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 2px;
+        font-size: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+    .license{
+        display: flex;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 2px;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+    }
+    .comment{
+        display: flex;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 2px;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+    }
+    .footer{
+        grid-area: 5/1/6/3;
+        display: flex;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 2px;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+    }
+</style>
+
+<body>
+    <div id="grid-container">
+        <header class="header">header</header>
+        <logo class="logo">logo</logo>
+        <nav class="nav">nav</nav>
+        <aside class="aside">aside</aside>
+        <main class="main">
+            <section class="selection">selection</section>
+            <section class="selection">selection</section>
+            <section class="selection">selection</section>
+        </main>
+        <license class="license">license</license>
+        <comments class="comment">comment</comments>
+        <footer class="footer">footer</footer>
+    </div>
+</body>
+
+</html>

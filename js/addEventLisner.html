@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+    }
+
+    #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+    }
+
+    #animate2 {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: blue;
+        right: 0px;
+    }
+</style>
+
+<body>
+    <p><button onclick="myMove()">Click Me</button></p>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)" id="container">
+        <div id="animate"></div>
+        <div id="animate2" onmousedown="mDown(this)" onmouseup="mUp(this)"></div>
+    </div>
+    <script>
+        const div = document.getElementById('animate2');
+        let leftPosition = 350;
+        let topPosition = 0;
+        document.addEventListener('keydown', (event) => {
+            console.log(`left: ${div.style.left}`)
+            console.log(`top: ${div.style.top}`)
+            switch (event.key) {
+                case 'ArrowLeft':
+                    if (leftPosition > 0) {
+                        leftPosition -= 10;
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (leftPosition < 350) {
+                        leftPosition += 10;
+                    }
+                    break;
+                case 'ArrowUp':
+                    if (topPosition > 0) {
+                        topPosition -= 10;
+                    }
+                    break;
+                case 'ArrowDown':
+                    if (topPosition < 350) {
+                        topPosition += 10;
+                    }
+                    break;
+            }
+            div.style.left = leftPosition + 'px';
+            div.style.top = topPosition + 'px';
+        });
+    </script>
+    <script>
+        const elem = document.getElementById("animate");
+        let pos = 0;
+        let flag = true;
+        id = setInterval(frame, 10);
+        function frame() {
+            if (pos == 450) {
+                flag = !flag;
+            } else if (flag) {
+                pos++;
+                elem.style.top = pos + "px";
+                elem.style.left = pos + "px";
+            }
+            if (!flag) {
+                pos--;
+                elem.style.top = pos + "px";
+                elem.style.left = pos + "px";
+                if (pos == 1) flag = !flag;
+            }
+        }
+        let flag2 = true;
+        function myMove() {
+            const elem = document.getElementById("animate");
+            if (flag2) {
+                elem.style.backgroundColor = "green";
+                flag2 = !flag2;
+            }
+            else {
+                elem.style.backgroundColor = "red";
+                flag2 = !flag2;
+            }
+        }
+        function mOut(obj) {
+            obj.style.backgroundColor = "yellow";
+        }
+        function mOver(obj) {
+            obj.style.backgroundColor = "orange";
+        }
+        function mDown(obj) {
+            obj.style.backgroundColor = "black";
+        }
+        function mUp(obj) {
+            obj.style.backgroundColor = "blue";
+        }
+    </script>
+</body>

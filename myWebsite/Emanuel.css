@@ -1,0 +1,101 @@
+body {
+    /* background-image: url('Emanuel.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-attachment: fixed;
+    background-position: center center;
+    margin: 0px;
+    padding: 0;
+    height: 100vh;
+    margin: 0px;
+
+
+}
+
+.reka {
+    background-color: transparent;
+    position: absolute;
+    opacity: 0.7;
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    bottom: 100px;
+}
+
+h1 {
+    background-color: rgba(0, 191, 255, 0.5);
+}
+
+h1 {
+    font-size: 50px;
+    padding: 10px;
+    color: rgb(230, 230, 230);
+    background-color: rgb(137, 207, 235, 0.9);
+    text-align: center;
+    box-shadow: 0 0 20px cadetblue;
+}
+
+h2 {
+    font-size: 30px;
+    text-decoration: underline;
+    padding: 10px;
+    color: rgb(230, 230, 230);
+    background-color: rgb(137, 207, 235, 0.9);
+    text-align: center;
+    box-shadow: 0 0 20px rgb(255, 255, 255);
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a{
+    text-align: center;
+}
+
+.jdn {
+    position: relative;
+    left: 0px;
+    top: 7px;
+}
+
+.mechdadesh {
+    position: relative;
+    left: -10px;
+    top: -35px;
+}
+
+.poalim {
+    position: relative;
+    left: 5px;
+    top: -7px;
+}
+.mashcanta{
+    position: relative;
+    left: 15px;
+}
+
+#titels {
+    font-style: unset;
+    text-decoration: underline;
+    color: skyblue;
+    font-size: 50px;
+    text-align: center;
+}
+
+.img {
+    float: left;
+    margin-right: 10px;
+}
+
+div {
+    background-color: rgb(255, 255, 255, 0.7);
+    transition: background-color 2s ease-in-out;
+}
+
+div:hover {
+    background-color: transparent;
+    /* שקוף*/
+}

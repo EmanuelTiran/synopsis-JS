@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Nabla&family=Nanum+Gothic&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    body {
+
+        color: rgb(93, 71, 71);
+    }
+
+    #f {
+        font-size: 50px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .rotated {
+        transform: rotateY(180deg);
+        transition: transform 1s;
+    }
+
+    #line {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: auto auto auto;
+        gap: 20px 5px;
+        padding: 10px;
+        width: 480px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+</style>
+
+<body>
+    <div id="f" onclick="start(this)">start</div>
+    <div id="line" onclick="click()"></div>
+</body>
+<script>
+    const colors = [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "orange",
+        "purple",
+        "pink",
+        "black",
+        "white",
+        "gray",
+        "lime",
+        "teal",
+    ];
+    let stepColor = [];
+    let step;
+    for (let i = 0; i < colors.length; i++) {
+        let myDiv = document.createElement('div');
+        myDiv.style.width = "100px";
+        myDiv.style.height = "150px";
+        myDiv.id = colors[i];
+        myDiv.style.backgroundColor = colors[i];
+        myDiv.style.setProperty("box-shadow", "0 0 5px 5px rgba(0, 0, 0, 0.7)");
+        myDiv.addEventListener("mousedown", () => { changeShadow(myDiv) })
+        myDiv.addEventListener("mouseup", () => { backShadow(myDiv) })
+        let line = document.getElementById("line");
+        line.appendChild(myDiv);
+    }
+    function start(start) {
+        step = 0
+        let r = Math.floor(Math.random() * colors.length);
+        start.style.backgroundColor = colors[r];
+        stepColor.push(colors[r])
+        console.log(stepColor);
+        start.classList.add("rotated");
+        setTimeout(() => {
+            start.classList.remove("rotated");
+        }, 1000);
+        rotate();
+    }
+    let rotate = () => {
+        console.log(step);
+        console.log(stepColor.length);
+        if (step == stepColor.length) {
+            start();
+            step = 0;
+            return;
+        }
+        document.getElementById(stepColor[step]).classList.add("rotated");
+        setTimeout(() => {
+            start.classList.remove("rotated");
+        }, 1000);
+        step++;
+        rotate();
+    }
+    let changeShadow = (myDiv) => {
+        myDiv.style.setProperty("box-shadow", "inset 0 0 5px 5px rgba(0, 0, 0, 0.7)");
+        console.log(myDiv.style.backgroundColor);
+        check(myDiv.style.backgroundColor);
+    }
+    let backShadow = (myDiv) => {
+        myDiv.style.setProperty("box-shadow", " 0 0 5px 5px rgba(0, 0, 0, 0.7)");
+    }
+    let check = (color) => {
+        if (stepColor[step] === color) step++;
+        else {
+            // line.style.display = "none";
+
+        }
+        if (step === stepColor.length) {
+            let div = document.getElementById("f");
+            div.innerHTML = "clickMe"
+        }
+    }
+    // myDiv.classList.remove("HR");
+</script>
+
+</html>

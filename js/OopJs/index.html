@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        background-color: black;
+    }
+
+    #container {
+        width: 1280px;
+        display: grid;
+        grid-template-columns: repeat(8, 300px);
+        grid-template-rows: repeat(30, 50px);
+        row-gap: 40px;
+        column-gap: 180px;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .clients {
+        box-shadow: 0 0 10px 2px rgb(255, 255, 255);
+        width: 300px;
+        height: 500px;
+        border: 5px solid black;
+        margin: 5px;
+        text-align: center;
+        border-radius: 5%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    input {
+        position: absolute;
+        padding: 10px;
+        top: 420px;
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.479);
+        text-align: center;
+        transform: translateX(-50%);
+    }
+
+    button {
+        position: absolute;
+        top: 460px;
+        transform: translateX(-50%);
+    }
+
+    select {
+        top: 10px;
+    }
+
+    #server {
+        box-shadow: 0 0 10px 2px rgb(255, 255, 255);
+        width: 300px;
+        height: 300px;
+        border: 5px solid black;
+        margin: 5px;
+        text-align: center;
+        grid-row: 3;
+        grid-column: 2;
+        transition: 1s transform ease-in;
+        overflow: auto;
+    }
+
+    #server:hover {
+        transform: scale(1.2, 1.2);
+        transform-origin: 50% 50%;
+    }
+
+    #c1 {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    #c2 {
+        grid-row: 2;
+        grid-column: 3;
+    }
+
+    #c3 {
+        grid-row: 8;
+        grid-column: 2;
+    }
+
+    .clients img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        /* opacity: 0.7; */
+        height: 500px;
+        transition: 1s transform ease-in;
+        transform-origin: 100% 0%;
+    }
+
+    .clients:hover img {
+        transform: scale(1.2, 1.2);
+        transform-origin: 100% 0%;
+    }
+
+    p {
+        border: 1px solid black;
+        text-align: start;
+        background-color: rgba(127, 180, 255, 0.4);
+        width: 60%;
+        backdrop-filter: blur(5px);
+        border-radius: 10%;
+        padding: 3px;
+        margin-left: 3px;
+        background: radial-gradient(rgba(0, 106, 255, 0.56), rgba(0, 147, 226, 0.56));
+    }
+
+    #p2 {
+        text-align: end;
+        margin-left: auto;
+        z-index: 1;
+    }
+
+    .rotate {
+        animation: rotate 1s linear 2;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotateZ(1deg);
+        }
+
+        20% {
+            transform: rotateZ(-1deg);
+        }
+
+        30% {
+            transform: rotateZ(-1deg);
+        }
+
+        40% {
+            transform: rotateZ(1deg);
+        }
+
+        50% {
+            transform: rotateZ(-1deg);
+        }
+
+        60% {
+            transform: rotateZ(1deg);
+        }
+
+        70% {
+            transform: rotateZ(-1deg);
+        }
+
+        80% {
+            transform: rotateZ(1deg);
+        }
+
+        90% {
+            transform: rotateZ(-1deg);
+        }
+
+        100% {
+            transform: rotateZ(1deg);
+        }
+    }
+
+    .frame {
+        border: 1px solid burlywood;
+        width: 280px;
+        height: 390px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: auto;
+        z-index: 1;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div class="clients" id="c1">
+            <img id="a"
+                src="https://pickture.co.il/wp-content/uploads/2023/04/%D7%A8%D7%A7%D7%A2-%D7%A9%D7%9C-%D7%A0%D7%95%D7%A3-%D7%99%D7%9D-%D7%95%D7%A9%D7%9E%D7%99%D7%99%D7%9D-8-768x768.jpg"
+                alt="" srcset="">
+            <select style="text-align: center; width: 200px;" name="client" id="">
+                <option selected disabled>select your friend</option>
+                <option value="c2">client 2</option>
+                <option value="c3">client 3</option>
+            </select><br>
+            <div class="frame"></div>
+            <button onclick="myMessage(this)">send</button><br><input type="text" placeholder="your massage" required>
+        </div>
+        <div id="server"></div>
+        <div class="clients" id="c2">
+            <img src="https://lcp.co.il/wp-content/uploads/2021/02/718151-7slg6z.jpg" alt="" srcset="">
+            <select style="text-align: center; width: 200px;" name="client" id="">
+                <option selected disabled>select your friend</option>
+                <option value="c1">client 1</option>
+                <option value="c3">client 3</option>
+            </select><br>
+            <div class="frame"></div>
+            <button onclick="myMessage(this)">send</button><input type="text" placeholder="your massage" required>
+        </div>
+        <div class="clients" id="c3">
+            <img src="https://play-lh.googleusercontent.com/fLjrv_JR5OsovqBCZHfcjyFIceIsTSemW-rhTHa-uBPyVnU67k2tyXtmvx5laiAxMX8"
+                alt="" srcset="">
+            <select style="text-align: center; width: 200px;" name="client" id="">
+                <option selected disabled>select your friend</option>
+                <option value="c1">client 1</option>
+                <option value="c2">client 2</option>
+            </select><br>
+            <div class="frame"></div>
+            <button onclick="myMessage(this)">send</button><input type="text" placeholder="your massage" required>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+    class Client {
+        constructor(id) {
+            this.id = id;
+            this.cable = new Cable(this.id);
+        }
+        creatPck(from, to, msg) {
+            let pack = new Packages(this, to, msg);
+          this.send(pack);
+        }
+        send(pack) {
+            this.cable.toS(pack);
+        }
+        getPck(pck) {
+            alert("welcome")
+            //  document.getElementById(target).classList.add("rotate");
+            // setTimeout(function () {
+            //     document.getElementById(target).classList.remove("rotate");
+            // }, 2500);
+        }
+    }
+    class Cable {
+        constructor(id) {
+            this.id = "cbl" + id;
+            this.isBusy = false;
+        }
+      
+        toC(pck) { 
+            pck.target.getPck(pck)
+        }
+        toS(pck) {
+            if (!this.isBusy) {
+                server.getPck(pck)
+                this.isBusy = true;
+                setTimeout(() => this.isBusy = false,3000)
+                // some animation 
+            } else {
+                alert("wait a few seconds");
+            }
+        }
+    }
+    class Server {
+        constructor() { }
+        getPck(pck) {
+          this.stoC(pck);
+            
+        }
+       stoC(pck) { 
+          pck.target.cable.toC(pck)
+        }
+    }
+    class Packages {
+        constructor(sender, target, msg) {
+            this.sender = sender;
+            this.target = target;
+            this.massage = msg;
+        }
+    }
+
+
+    const server = new Server();
+
+    const myMessage = (obj) => {
+        let client = new Client(obj.parentNode.id);
+        let myDiv = document.getElementById(client.id);
+        let frame = myDiv.querySelector(".frame");
+        let msg = myDiv.getElementsByTagName("input")[0].value;
+        myDiv.getElementsByTagName("input")[0].value = "";
+        console.log("msg:" + msg);
+        if (msg == "") return;
+        let target = myDiv.getElementsByTagName("select")[0].value;
+        if (target != "c1" && target != "c2" && target != "c3") return;
+        var newParagraph = document.createElement("p");
+        newParagraph.innerHTML = msg;
+        frame.appendChild(newParagraph);
+        console.log("target:" + target);
+        let toClient = new Client(target);
+        client.creatPck(this, toClient, msg)
+    
+    }
+
+
+
+
+
+
+</script>
+ <!-- <script>
+
+    const myMessage = (obj) => {
+            let myDiv = obj.parentNode;
+            let frame = myDiv.querySelector(".frame");
+            let msg = myDiv.getElementsByTagName("input")[0].value;
+                myDiv.getElementsByTagName("input")[0].value = "";
+                console.log(msg);
+                if (msg == "") return;
+                let target = myDiv.getElementsByTagName("select")[0].value;
+                if (target!="c1" &&target!="c2" &&target!="c3"  ) return;
+                var newParagraph = document.createElement("p");
+                newParagraph.innerHTML = msg;
+                frame.appendChild(newParagraph);
+                // myDiv.insertBefore(newParagraph, myDiv.querySelector("input"));
+                console.log(target);
+                document.getElementById(target).classList.add("rotate");
+                setTimeout(function () {
+                    document.getElementById(target).classList.remove("rotate");
+                }, 2500);
+                let sender = myDiv.id;
+                console.log(new Packages(msg, sender, target));
+                let server = new Server();
+                server.send(new Packages(msg, sender, target));
+            }
+            class Packages {
+                constructor(msg, sender, target) {
+                    this.massage = msg;
+                    this.sender = sender;
+                    this.target = target;
+                }
+            }
+            class Server {
+                constructor() {
+                }
+                send(packag) {
+                    var newParagraph = document.createElement("p");
+                    newParagraph.innerHTML = packag.massage;
+                    newParagraph.style.textAlign = "center";
+                    document.getElementById("server").appendChild(newParagraph);
+                    var newParagraph1 = document.createElement("p");
+                    newParagraph1.id = "p2";
+                    let myDiv =  document.getElementById(packag.target);
+                    let frame = myDiv.querySelector(".frame");
+                    newParagraph1.innerHTML = packag.massage;
+                    frame.appendChild(newParagraph1);
+        
+                    myDiv.insertBefore(newParagraph1, myDiv.querySelector("input"));
+                     myDiv.insertBefore(newElement, myDiv.querySelector("#my-input"));
+                }
+            }
+</script> -->
+
+
+</html>

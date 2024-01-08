@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleForms.css" />
+
+</head>
+
+<body>
+
+    <h1>Registration</h1>
+    <div id="contiener">
+        <img id="push" src="images/push.gif">
+        <div>
+            <input type="text" id="firstName" placeholder="First Name" oninput="this.value = this.value.replace(/[^A-Za-zא-ת]/g, '')" />
+            <input type="text" id="lastName" placeholder="Last Name" oninput="this.value = this.value.replace(/[^A-Za-zא-ת]/g, '')" />
+            <input type="password" id="password" placeholder="Password" />
+            <button onclick="updateUser()">Registration</button>
+            <button onclick="location.href='index.html'">I have an account</button>
+        </div>
+    </div>
+    <script>
+
+        function updateUser() {
+            let userName = document.querySelector("#firstName").value;
+            let lastName = document.querySelector("#lastName").value;
+            let password = document.querySelector("#password").value;
+            let userAccount = {
+                fName: userName,
+                lName: lastName,
+                pass: password,
+            };
+            if (userName == "" || lastName == "" || password == "") {
+                alert("Enter all the fields");
+                return;
+            }
+            let usersArr = JSON.parse(localStorage.getItem("users")) || [];
+            let match = false;
+            for (let i = 0; i < usersArr.length; i++) {
+                if (userName == usersArr[i].fName && lastName == usersArr[i].lName) {
+                    match = true;
+                }
+            }
+            if (match == false) {
+                alert("You have successfully registered");
+                usersArr.push(userAccount);
+                usersArrStr = JSON.stringify(usersArr);
+                localStorage.setItem("users", usersArrStr);
+                location.href = "index.html";
+            } else {
+                alert("Existing user Enter a different user name");
+            }
+        }
+    </script>
+</body>
+
+</html>

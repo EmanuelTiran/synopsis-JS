@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    (async () => {
+        let response = await fetch("address.json");
+       let arr = await response.json();
+        // arr = JSON.stringify(arr);
+        for (let i = 0; i < arr.length; i++) {
+            let name = arr[i].name + " " + arr[i].family;
+            let eMail = arr[i].mail;
+            localStorage.setItem(name, eMail);
+        }
+    })();
+
+   ( async ()=>  {
+  const response = await fetch("client.html?x=" + x);
+  const man = await response.json();
+  return man;
+})()
+
+    
+
+    const keys = Object.keys(localStorage);
+
+    async function search(man) {
+
+        const filterPerson = keys.filter(man =>
+            man.includes(man));
+            
+        filterPerson.forEach(person => {
+            const suggestionDiv = document.createElement('div');
+            suggestionDiv.textContent = person;
+
+            suggestionDiv.addEventListener('click', () => {
+                document.getElementById("mail").innerHTML = localStorage.getItem(person);
+            });
+            suggs.appendChild(suggestionDiv);
+        })
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ספירת מלאי</h1>
+
+<div id="list"></div>
+    <form action="">
+        <input id="name" type="text" placeholder="name"><br>
+        <input id="price" type="number" placeholder="price"><br>
+        <input id="quantity" type="number" placeholder="quantity"><br>
+    </form>
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>price</th>
+            <th>quantity</th>
+          </tr>
+        </thead>
+        <tbody id="contentBody"></tbody>
+      </table>
+    <button id="btn" onclick="func()" >הוסף לרשימה</button>
+</body>
+<script>
+    let arr = [];
+let func = () =>{
+    let obj ={};
+obj["name"]  = document.getElementById("name").value;
+obj["price"]  = parseInt(document.getElementById("price").value) ;
+obj["quantity"]  = parseInt(document.getElementById("quantity").value);
+arr.push(obj);
+    document.getElementById("list").innerHTML=JSON.stringify(arr);
+}
+
+    /*    // chapter 3/unit3,4/Q1 =====>
+        const object = {
+            name: "John Doe",
+            age: 30,
+            address: "123 Main Street",
+        };
+        console.log(object[0]);
+        let editObj = (obj) => {
+            for (const key in obj) {
+                if (typeof obj[key] === "number") {
+                    obj[key]+=5;
+                    console.log(obj[key]);
+                } else if (typeof obj[key] === "string") {
+                    obj[key]= obj[key].toUpperCase();
+                    console.log(obj[key]);
+                } else if(typeof obj[key] === "object"){
+                    delete obj[key];
+                    console.log(obj[key]);
+                }
+            }
+        }
+        editObj(object);
+        console.log(object);
+    */
+
+
+    /*  // chapter 3/unit3,4/Q2.5 =====>
+    const object = {
+        name: "John Doe",
+         age: 30,
+         address: "123 Main Street",
+     };
+ 
+     let mam = JSON.stringify(object)
+     console.log(mam);
+ 
+     let arrChars = Array.from(mam, (char) => {
+         if (char !== "}" && char !== "{" && char !== "/" && char !== "." && char !== ":" && char !== undefined) {
+             return char;
+         }
+     });
+     console.log(arrChars);
+     let arrString = arrChars.join("");     ךקא שררדארןמע = שררבישרדץחםןמ)""(ף
+
+
+
+
+     console.log(arrString);
+ */
+
+    /**/ // chapter 3/unit3,4/Q2 =====>
+    /*  const object = {
+            name: "John Doe",
+            age: 30,
+            address: "123 Main Street",
+        }
+    
+        let aBc = (obj) => {
+            let keyObj = Object.keys(obj);
+            let keySort = keyObj.sort((string1, string2) => string1.localeCompare(string2));
+            let obj2 = {};
+            console.log();
+            for (let index = 0; index < keySort.length; index++) {
+                obj2[keySort[index]] = obj[keySort[index]]
+            }
+            let string = JSON.stringify(obj2)
+            return string;
+        }
+        console.log(aBc(object));
+    */
+
+    // chapter 3/unit3,4/Q3 =====>
+ /*   class Product {
+        #name;
+        #price;
+        #id;
+        constructor(name, price, id) {
+            this.#name = name;
+            this.#price = price;
+            this.#id = id;
+        }
+        get name() {
+            return this.#name;
+        }
+
+        set name(name) {
+            this.#name = name;
+        }
+
+        get price() {
+            return this.#price;
+        }
+
+        set price(price) {
+            this.#price = price;
+        }
+
+        get id() {
+            return this.#id;
+        }
+
+        set id(id) {
+            this.#id = id;
+        }
+    }
+    let prod1 = new Product("milk", 5, 0);
+    let prod2 = new Product("chaken", 55, 1);
+    let arr = [prod1, prod2];
+    console.log(arr);
+    let updatePrice = product => {
+        console.log(product);
+        if (product.price > 50) {
+            product.price = product.price * 1.1;
+        }
+        else product.price = product.price * 1.15;
+        return product;
+    }
+
+    let updateProducts = products => {
+        products.forEach(element => {
+            updatePrice(element);
+        }
+        );
+        return products
+    }
+    console.log(updateProducts(arr));*/
+
+
+
+</script>
+
+</html>

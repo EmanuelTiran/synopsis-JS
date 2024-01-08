@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn" onclick="counter()">count</button>
+    <p id="p" onclick="counter()"></p>
+    <script src=""></script>
+    <script>
+        let c = 0;
+        const counter = () => {
+            let p = document.getElementById('p');
+            p.innerHTML = `the count is:${c}`;
+            c++;
+            if (c==2) {
+                document.getElementById('btn').disabled=true;
+            }
+        }
+    </script>
+</body>
+<!-- <script>
+    let btn = document.getElementById('btn');
+    const sqrt = () => {
+        let a = document.getElementById('a').value;
+        let b = document.getElementById('b').value;
+        let c = document.getElementById('c').value;
+        if (a == 0) {
+            console.log(`1 solution x=${-c / b}`)
+        }
+        else if (b * b - 4 * a * c == 0) {
+            console.log(`1 solution x=${-b / 2 * a}`)
+            
+        } else if (b * b - 4 * a * c < 0) {
+            console.log(`no solution `)
+        }
+        else if (b * b - 4 * a * c > 0) {
+            console.log(`2 solution x1=${(-b + Math.sqrt((b * b) - (4 * a * c))) / (2 * a)}
+            x2=${(-b - Math.sqrt((b * b) - (4 * a * c))) / (2 * a)}`)
+        }
+    }
+    btn.addEventListener('click',sqrt);
+</script> -->
+
+</html>

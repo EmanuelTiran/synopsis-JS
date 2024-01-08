@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<style>
+    img {
+        width: 200px;
+    }
+</style>
+
+<body>
+    <img id="img"
+        src="https://www.akc.org/wp-content/uploads/2018/05/Three-Australian-Shepherd-puppies-sitting-in-a-field.jpg"
+        alt="" srcset="">
+    <script>
+        const arr = ["https://www.southernliving.com/thmb/Rz-dYEhwq_82C5_Y9GLH2ZlEoYw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gettyimages-837898820-1-4deae142d4d0403dbb6cb542bfc56934.jpg",
+            "https://www.akc.org/wp-content/uploads/2021/07/Cavalier-King-Charles-Spaniel-laying-down-indoors.jpeg",
+            "https://www.akc.org/wp-content/uploads/2021/07/Cavalier-King-Charles-Spaniel-laying-down-indoors.jpeg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/10_yr_old_Mastiff.JPG/1200px-10_yr_old_Mastiff.JPG"
+        ]
+        const elem = document.getElementById("img");
+        let indx = 0;
+        const frame = () => {
+            elem.src = arr[indx];
+            indx = (indx + 1) % arr.length;
+        }
+        setInterval(frame, 1000);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@300;400&family=Nabla&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    body {
+        color: rgb(53, 54, 56);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'IBM Plex Sans Hebrew', sans-serif;
+        font-family: 'Nabla', cursive;
+        background-color: rgb(73, 77, 90);
+        font-size: 40px;
+        background-image: linear-gradient(to right, rgb(39, 100, 122), rgb(73, 77, 90), rgb(73, 77, 90), rgb(39, 100, 122));
+    }
+
+    #jst {
+        width: 420px;
+        height: 420px;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(100, auto);
+        /* border: 5px solid black; */
+        gap: 10px;
+        padding: 10px;
+        position: relative;
+    }
+
+    .div {
+        width: 200px;
+        height: 200px;
+        border: 5px solid black;
+        box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    #red {
+        background-color: rgb(255, 27, 27);
+        border-radius: 80% 0 0 0;
+    }
+
+    #blue {
+        background-color: rgb(0, 45, 118);
+        border-radius: 0 80% 0 0;
+    }
+
+    #green {
+        background-color: green;
+        border-radius: 0 0 0 80%;
+    }
+
+    #orange {
+        background-color: orange;
+        border-radius: 0 0 80% 0;
+    }
+
+    #lighyBlue {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 5px double rgb(255, 255, 255);
+        background-color: rgb(39, 100, 122);
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        position: absolute;
+        left: 145px;
+        top: 145px;
+    }
+
+    #lighyBlue:hover {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id="level">level :1</div>
+    <div id="jst">
+        <div id="lighyBlue" onclick="start()">start</div>
+    </div>
+</body>
+<script>
+    let i2 = 0;
+    let colors = ["red", "blue", "green", "orange"]
+    let jst = document.getElementById("jst");
+    for (let index = 0; index < 4; index++) {
+        let myDiv = document.createElement('div');
+        myDiv.id = colors[index];
+        myDiv.classList.add("div");
+        myDiv.addEventListener("mousedown", () => { changeColor(myDiv) })
+        myDiv.addEventListener("mouseup", () => { backColor(myDiv) })
+        myDiv.addEventListener("mousedown", (event) => {
+            event.preventDefault();
+        });
+        jst.appendChild(myDiv);
+    }
+    let flag = true;
+    let arr = [];
+    let p = (a) => {
+        document.getElementById("lighyBlue").innerHTML = a;
+    }
+    let myLevel = () => {
+        document.getElementById("level").innerHTML = "level :" + (arr.length + 1);
+    }
+    let start = () => {
+        if (flag) {
+            computer();
+            flag = !flag;
+            p("goodLuck");
+        }
+    }
+    let computer = () => {
+        disAble();
+        let random = Math.floor(Math.random() * 4);
+        // while (arr[arr.length - 1] === colors[random])
+        //     random = Math.floor(Math.random() * 4) ;
+        arr.push(colors[random])
+        console.log(arr);
+        light(arr[0], 0);
+    }
+    let light = (stepColor, i) => {
+        let div = document.getElementById(stepColor);
+        if (i >= arr.length) return;
+        let color = div.style.backgroundColor;
+        div.style.backgroundColor = "yellow";
+        let second = 2;
+        light1 = setInterval(() => {
+            second--;
+            if (second < 1) {
+                clearInterval(light1);
+                div.style.backgroundColor = color;
+                if (i != undefined) {
+                    i++;
+                    setTimeout(() => { light(arr[i], i) }, 100);
+                }
+            }
+        }, 400);
+    }
+    let changeColor = (element) => {
+        element.style.backgroundColor = "yellow";
+        if (element.id === arr[i2]) {
+            if (i2 < arr.length) {
+                i2++;
+            }
+            if (i2 === arr.length) {
+                myLevel();
+                i2 = 0;
+                setTimeout(computer, 1000);
+            }
+        }
+        else {
+            p("gameOver")
+            var start2 = document.getElementById('lighyBlue');
+        start2.addEventListener("click", () => {
+            location.reload();
+        })
+        };
+    }
+    let backColor = (element) => {
+        element.style.backgroundColor = element.id;
+    }
+    let disAble = () => {
+        const divs = document.querySelectorAll('#jst > div');
+        for (const div of divs) {
+            console.log(div.id);
+            div.addEventListener("mousedown", (event) => {
+                event.preventDefault();
+            });
+        }
+    }
+    // myDiv.addEventListener("mousedown", () => { changeShadow(myDiv) })
+    //     myDiv.addEventListener("mouseup", () => { backShadow(myDiv) })
+</script>
+
+</html>

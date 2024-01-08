@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleForms.css" />
+
+</head>
+
+<body>
+    <h1>Login</h1>
+    <div id="contiener">
+        <div>
+            <input type="text" id="firstName" placeholder="First Name" />
+            <input type="text" id="lastName" placeholder="Last Name" />
+            <input type="password" id="password" placeholder="Password" />
+            <button onclick="loginUser()">Login</button>
+            <button onclick="window.location.href='registation.html'">
+                I don't have an account
+            </button>
+        </div>
+    </div>
+    <script>
+        setInterval(() => clock(), 1000);
+        let clock = () => {
+            const date = new Date();
+            const hour = date.getHours();
+            const minute = date.getMinutes();
+            const seconds = date.getSeconds();
+            if (seconds < 10) {
+                console.log(hour + ":" + minute + ":0" + seconds);
+
+            } else
+                console.log(hour + ":" + minute + ":" + seconds);
+        }
+        function loginUser() {
+            let userName = document.querySelector("#firstName").value;
+            let lastName = document.querySelector("#lastName").value;
+            let password = document.querySelector("#password").value;
+            let fromLocal = JSON.parse(localStorage.getItem("users") || []);
+            let match = false;
+            for (let i = 0; i < fromLocal.length; i++) {
+                if (
+                    userName == fromLocal[i].fName &&
+                    lastName == fromLocal[i].lName &&
+                    password == fromLocal[i].pass
+                ) {
+                    match = true;
+                    localStorage.setItem("player", JSON.stringify(fromLocal[i]));
+                }
+            }
+            if (match) {
+                location.href = "hey.html";
+            } else {
+                alert("One of the data is incorrect");
+            }
+        }
+    </script>
+</body>
+
+</html>

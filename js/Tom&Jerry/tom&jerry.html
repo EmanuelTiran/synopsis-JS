@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 800px;
+        flex-direction: column;
+        background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(127, 200, 255), rgb(127, 200, 255), white);
+    }
+
+    #logo {
+        height: 150px;
+    }
+
+    #capBoard {
+        display: grid;
+        grid-template-columns: repeat(8, auto);
+        grid-template-rows: repeat(8, auto);
+        gap: 0px 0px 0px 0px;
+        background-color: #E6DA00;
+        padding: 10px;
+        width: 600px;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    #details {
+        justify-content: space-around;
+        width: 600px;
+    }
+
+    div div {
+        font-size: 30px;
+    }
+
+
+    @keyframes winning {
+        0% {
+            font-size: 20px;
+            color: #FF2600;
+        }
+
+        25% {
+            color: #A9D38E;
+        }
+
+        50% {
+            color: #008000;
+        }
+
+        75% {
+            font-size: 200px;
+            color: #E6DA00;
+        }
+
+        100% {
+            font-size: 20px;
+            color: #FF2600;
+        }
+    }
+
+    p {
+        display: none;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 200px;
+        font-weight: bold;
+        animation: winning 5s linear infinite;
+        position: absolute;
+        top: 150px;
+    }
+
+    .music {
+        font-size: 40px;
+        position: absolute;
+        top: 3%;
+        left: 2%;
+        transition: transform 0.2s;
+
+    }
+
+    .music:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <p id="win"></p>
+    <p id="lost">The time is over</p>
+    <img id="logo" src="images/תום וג'רי.png" alt="">
+    <div id="details">
+        <div>🕒</div>
+        <div>:</div>
+        <h1 id="h1"></h1>
+        <div>|</div>
+        <div>💨</div>
+        <div>:</div>
+        <h1 id="h2">60</h1>
+        <div>|</div>
+        <div>🧔</div>
+        <div>:</div>
+        <h1 id="h3"></h1>
+    </div>
+    <div class="music" id="mute" onmousedown="mute()">🔊</div>
+    <div class="music" id="sound" onclick="sound()">🔈</div>
+    <img id="cat" height="100px" src="images/Tom.png">
+    <img id="mouse" onmousedown="mDown(this)" height="70px" src="images/Jerry.png">
+    <!-- <input type="button" value="random"> -->
+</body>
+<script>
+
+    var speedCat = 400;
+    var level = 1;
+    const background_music = new Audio("audio/background_music.mp3");
+    background_music.loop = true;
+    const lost = new Audio("audio/lost.mp3");
+    const winner = new Audio("audio/winner.mp3");
+    function startTimer() {
+        let timer = 61;
+        let h1 = document.getElementById('h1');
+        let h2 = document.getElementById('h2');
+        h2.innerHTML = `${level}`
+        background_music.play();
+
+        timerId = setInterval(() => {
+            timer--;
+            h1.innerHTML = timer;
+            if (timer <= 5) {
+                h1.style.color = "red";
+            }
+            if (timer === 0) {
+                lost.play();
+                background_music.pause();
+                clearInterval(timerId);
+                cat.style.display = "none";
+                mouse.style.display = "none";
+                document.getElementById('lost').style.display = "block";
+            }
+        }, 1000);
+    }
+    startTimer();
+
+    let mouse = document.getElementById('mouse');
+    let cat = document.getElementById('cat');
+    let cell = Math.floor(Math.random() * 64 + 1);
+
+    let capBoard = document.createElement('div');
+    capBoard.id = "capBoard";
+    document.body.appendChild(capBoard);
+    let flag = true;
+    for (let index = 1; index <= 64; index++) {
+        let myDiv = document.createElement('div');
+        myDiv.style.width = "75px";
+        myDiv.style.height = "75px";
+        myDiv.id = `id${index}`;
+        myDiv.onclick = function () {
+            this.appendChild(mouse)
+            if (cat.parentNode === mouse.parentNode) {
+                winTime = setInterval(() => {
+                    timeWin--;
+                    document.getElementById('win').innerHTML = "good";
+                    cat.style.display = "none";
+                    mouse.style.display = "none";
+                    if (timeWin == 0) {
+                        startTimer();
+                        cat.style.display = "block";
+                        mouse.style.display = "block";
+                        clearInterval(winTime);
+                        document.getElementById('win').style.display = "none";
+                    }
+                }, 1000);
+                background_music.pause();
+                winner.play();
+                document.getElementById('win').style.display = "block";
+                speedCat -= 50;
+                level++;
+                clearInterval(timerId);
+                clearInterval(id);
+                id = setInterval(move_cat, speedCat);
+                let timeWin = 5;
+            }
+        }
+        if (flag) {
+            myDiv.style.backgroundColor = "#707070";
+            flag = !flag;
+        } else {
+            myDiv.style.backgroundColor = "#E0E0E0";
+            flag = !flag;
+        }
+        if (index % 8 === 0) flag = !flag;
+        capBoard.appendChild(myDiv);
+    }
+    id = setInterval(move_cat, speedCat);
+    let arr_of_moves = ["0", "-1", "+1", "+8", "-8"];
+    function move_cat() {
+        let ran = Math.floor(Math.random() * arr_of_moves.length + 1);
+        let move = parseInt(arr_of_moves[ran]);
+        switch (move) {
+            case -1:
+                if (cell > 1 && cell % 8 != 1) {
+                    cell -= 1;
+                }
+                break;
+            case 1:
+                if (cell < 64 && cell % 8 != 0) {
+                    cell += 1;
+                }
+                break;
+            case -8:
+                if (cell > 8) {
+                    cell -= 8;
+                }
+                break;
+            case 8:
+                if (cell < 57) {
+                    cell += 8;
+                }
+                break;
+        }
+        document.getElementById(`id${cell}`).appendChild(cat);
+    }
+    document.getElementById(`id${cell}`).appendChild(cat);
+    document.getElementById(`id${2}`).appendChild(mouse);
+    let f = true;
+    function mDown(obj) {
+        if (f) {
+            obj.style.height = "85px";
+            f = !f;
+        } else {
+            obj.style.height = "70px";
+            f = !f;
+        }
+    }
+
+    let mutey = document.getElementById('mute');
+    let soundy = document.getElementById('sound');
+    soundy.style.display = "none";
+    const mute = () => {
+        mutey.style.display = "none";
+        soundy.style.display = "block";
+        background_music.pause();
+        winner.pause();
+        lost.pause();
+    }
+    const sound = () => {
+        mutey.style.display = "block";
+        soundy.style.display = "none";
+        background_music.play();
+
+    }
+
+    const logo = () => {
+        var logo = document.getElementById('logo');
+        logo.addEventListener("click", () => {
+            location.reload();
+        }
+        )
+    }
+    logo();
+
+    // let allUsers = JSON.parse(localStorage.getItem('users'));
+    // let user = JSON.parse(localStorage.getItem('users'));
+    let player = JSON.parse(localStorage.getItem('player'));
+    document.querySelector('#h3').textContent = `${player.fName}  ${player.lName}`;
+
+    let scoreCounter = player.level || 0;
+    
+</script>
+
+</html>

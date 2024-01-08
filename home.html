@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #reka{
+        height: 1000px;
+        position: absolute;
+        background-color: burlywood;
+        /* background:linear-gradient(to right,blue,red,green); */
+    }
+    #home {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: 150px;
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+    }
+
+    #window1 {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 15px;
+        height: 30px;
+        background-color: yellow;
+        border: 2px solid black;
+    }
+
+    #window2 {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 15px;
+        height: 30px;
+        background-color: yellow;
+        border: 2px solid black;
+    }
+
+    #triangleout {
+        position: absolute;
+        position: relative;
+        bottom: 120px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border-left: 60px solid transparent;
+        border-right: 60px solid transparent;
+        border-bottom: 120px solid rgb(130, 130, 0);
+
+    }
+    #triangle {
+        position: absolute;
+        left: -50px;
+        top: 15px;
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+    }
+
+    #door {
+        position: absolute;
+        bottom: 0px;
+        left: 42px;
+        width: 15px;
+        height: 30px;
+        background-color: brown;
+        border: 2px solid rgba(134, 56, 56, 0.4);
+    }
+
+
+    #door {
+        /* position: absolute; */
+        bottom: 0px;
+        left: 42px;
+        width: 15px;
+        height: 30px;
+        background-color: brown;
+        border: 2px solid rgba(134, 56, 56, 0.4);
+    }
+    
+    #handdle {
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        top: 20px;
+        background-color: rgb(255, 255, 255);
+    }
+</style>
+
+<body>
+    <div id="reka"></div>
+    <div id="home">
+        <div id="window1"></div>
+        <div id="window2"></div>
+        <div id="triangleout">
+            <div id="triangle"></div>
+        </div>
+        <div id="door">
+            <div id="handdle"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        font-family: calibri;
+    }
+
+    #reka {
+        /* background-image: url('https://israel-trade.net/wp-content/uploads/2020/03/plane-1-538x358.jpg'); */
+        background-image: url(image.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+        position: absolute;
+        opacity: 0.7;
+        z-index: -1;
+        position: fixed;
+        width: 100%;
+        top: 0px;
+        bottom: 0px;
+        /* filter: blur(30px); */
+    }
+
+    input {
+        width: 350px;
+        padding-top: 5px;
+        margin: 8px;
+        text-align: center;
+    }
+
+    select {
+        width: 300px;
+        padding-top: 5px;
+        margin: 8px;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    #d1 {
+        display: inline-block;
+        border: 2px solid black;
+    }
+
+    #d {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    h1 {
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 80px;
+
+    }
+
+    placeholder {
+        text-align: center;
+    }
+
+    .sighn {
+        font-size: 50px;
+        font-family: calibri;
+        animation: swap 5s linear infinite;
+        /* animation: rotate 5s linear infinite; */
+    }
+
+    @keyframes swap {
+        0% {
+            color: rgb(0, 134, 155);
+        }
+
+        33% {
+            color: orange;
+        }
+
+        66% {
+            color: orange(255, 153, 0);
+        }
+
+        100% {
+            color: rgb(0, 134, 155);
+        }
+    }
+
+
+
+    /* @keyframes rotate {
+        0% {
+            margin-right: 0px;
+        }
+
+        100% {
+            margin-right: 100px;
+        }
+    } */
+</style>
+
+<body>
+    <div id="reka"></div>
+    <h1>Book of flight</h1>
+    <form action="">
+        <div style="font-weight: bold;" id="d1">
+            <input placeholder="your name" id="name" type="text" minlength="2" maxlength="20" name="name"><br>
+            <input placeholder="family name" id="family" type="text" minlength="2" maxlength="20"><br>
+            <input placeholder="Phone" style="padding: right 180px;;" type="text" pattern="[0-9]+" maxlength="10"><br>
+            <input placeholder="E-mail" type="email"><br>
+            <input placeholder="out" type="text" minlength="3" maxlength="3"><br>
+            <input placeholder="Enter" type="text" minlength="3" maxlength="3"><br>
+            <input placeholder="Date" type="date"><br>
+            BreakFirst<input id="d" type="radio"><br>
+            Lanch<input id="d" type="radio"><br>
+            Dinner<input id="d" type="radio"><br>
+            <textarea style="text-align: center;" placeholder="what do you want to tell us???" cols="45"
+                rows="10"></textarea><br>
+            <select style="text-align: center; width: 358px;" name="card" id="">
+                <option selected disabled>select your card</option>
+                <option value="Visa">Visa</option>
+                <option value="Mastercard">Mastercard</option>
+                <option value="AmericanExpress">AmericanExpress</option>
+            </select><br>
+            <input placeholder="name's card" type="text" minlength="16" maxlength="16"><br>
+            <input placeholder="family's card" type="text" minlength="2" maxlength="20"><br>
+            <input placeholder="number's card" type="text" pattern="[0-9]+" maxlength="16"><br>
+            <input style="width: 160px;" placeholder="month" type="number" min="1" max="12">
+            <input style="width: 160px;" placeholder="year" type="number" min="23" max="99"><br>
+            <input placeholder="cvv" type="text" pattern="[0-9]+" maxlength="4"><br>
+            <input type="submit" style="color:azure; background-color: black;"><br>
+        </div>
+        <div class="sighn">Emanuel Tiran</div>
+
+
+    </form>
+</body>
+
+</html>

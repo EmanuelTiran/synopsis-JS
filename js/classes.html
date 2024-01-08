@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+</body>
+<!-- <script>
+    class Car {
+        constructor(brand) {
+            this.carname = brand;
+        }
+        get cnam() {
+            return this.carname;
+        }
+        set cnam(x) {
+            this.carname = x;
+        }
+        static hello() {
+            return "Hello!!";
+        }
+        static hey(x) {
+            return "Hey " + x.carname;
+        }
+    }
+    class Model extends Car {
+        #model;  // הסולמית עושה שיהיה פרייוט והוא חלק מהשם שלו
+        constructor(model, brand) {
+            super(brand); // must to be first
+            this.#model = model;
+        }
+        get model() { // the name of function must be another from the field => _model != model
+            return this.#model;
+        }
+        set model(x) {
+            this.#model = x;
+        }
+        age() {
+            const date = new Date();
+            return date.getFullYear() - this.year;
+        }
+
+    }
+
+    const myCar = new Model("emaniuel", "Ford");
+    const myCar2 = new Car(5);
+    myCar2.carname += 5;
+    console.log(myCar2);
+    document.getElementById("demo").innerHTML = myCar.cnam;
+    myCar.model = 5; // just like that you can use at set => obj.set="value";
+    console.log(myCar);
+    console.log(Car.hello); // ביגלל שה"הי" הוא בסטאטיק אפשר לקרוא דרך המחלקה
+    console.log(Car.hey(myCar));
+</script> -->
+
+
+</html>

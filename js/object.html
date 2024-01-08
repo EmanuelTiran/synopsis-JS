@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let object1 = {  //דרך אחת ליצירת אובייקט(הכי פרימיטיבית)
+        name: "Emanuel",
+        age: 29,
+        grade: 100
+    }
+    console.log(object1);
+
+
+
+    function Constractor(name, age, grade) { // דרך 2 ליצירת אובייקט: קונסטראקטור 
+        this.name = name,
+            this.age = age;
+        this.grade = grade;
+    }
+    const object3 = new Constractor("maykel", 24, 98); // וכך מייצרים אותו
+    const object4 = new Constractor("Eliyhu", 33, 99); // וכך מייצרים אותו (חייבים NEW)
+    console.log(object3);
+    console.log(object4);
+
+
+
+
+    function Factory(name, age, grade) { // דרך 3: פונקצייה ליצירת אובייקט 
+        return {
+            name: name,
+            age: age,
+            grade: grade
+        }
+    }
+
+    const object5 = Factory("David", 33, 84); // 
+    console.log(object5);
+
+    let arrObj = [object1, object3, object4, object5] // array of object
+    console.log(arrObj);
+    let keys = Object.keys(object3);
+    console.log("keys :" + keys); // return arr of string an all the keys
+    console.log(Object.values(object3)); // return  all of string an the values
+
+    console.log(object1.name); // דרך להציג את הוואליו
+    console.log(object1['name']); // דרך נוספת להציג את הוואליו 
+
+</script>
+
+</html>

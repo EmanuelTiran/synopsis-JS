@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+// 1. ציור קו בין שני נקודות
+const canvas = document.getElementById("myCanvas");
+const context = canvas.getContext("2d");
+context.beginPath();
+context.moveTo(50, 50); // התחלה בנקודה (50, 50)
+context.lineTo(150, 150); // סיום בנקודה (150, 150)
+context.stroke(); // ציור הקו
+
+// 2. ציור ריבוע
+context.fillRect(200, 50, 100, 100); // ציור ריבוע בנקודה (200, 50) ברוחב 100 וגובה 100
+// 3. ציור מערוך מלבנים
+for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+        context.fillRect(300 + i * 30, 50 + j * 30, 20, 20); // ציור מלבן ברוחב 20 וגובה 20 במערוך
+    }
+}
+// 4. ציור מעגל
+context.beginPath();
+context.arc(450, 100, 40, 0, 2 * Math.PI); // ציור מעגל בנקודה (450, 100) ורדיוס 40
+context.stroke();
+
+// 5. ציור שבעה
+context.fillStyle = "blue"; // הגדרת צבע מילוי כחול
+context.fillRect(550, 50, 50, 50);
+context.fillStyle = "green"; // החלפת צבע מילוי לירוק
+context.fillRect(550, 100, 50, 50);
+context.fillStyle = "red"; // החלפת צבע מילוי לאדום
+context.fillRect(550, 150, 50, 50);
+// 6. מחיקת אזור מסוים בקנבס
+context.clearRect(650, 50, 50, 50); // מחיקת מלבן בנקודה (650, 50) ברוחב 50 וגובה 50
+// 7. שימוש בטקסט
+context.font = "20px Arial"; // הגדרת גופן וגודל הטקסט
+context.fillText("טקסט בקנבס", 700, 100); // הוספת טקסט לקנבס
+// 8. שימוש בתמונה
+const image = new Image();
+image.src = "myImage.png"; // הגדרת מקור התמונה
+image.onload = function() {
+    context.drawImage(image, 800, 50, 100, 100); // הצגת התמונה בקנבס
+};
+// 9. שימוש בגרדיאנט
+const gradient = context.createLinearGradient(900, 0, 1000, 0); // יצירת גרדיאנט לינארי
+gradient.addColorStop(0, "red"); // הגדרת נקודת צבע ראשונה
+gradient.addColorStop(1, "blue"); // הגדרת נקודת צבע שנייה
+context.fillStyle = gradient; // הגדרת הגרדיאנט כצבע מילוי
+context.fillRect(900, 50, 100, 100); // ציור מלבן עם הגרדיאנט
+// 10. שימוש במבנה Path2D
+const path = new Path2D();
+path.arc(100, 250, 40, 0, 2 * Math.PI); // יצירת מעגל במבנה Path2D
+context.fillStyle = "orange";
+context.fill(path); // ציור המעגל באמצעות המבנה Path2D
+// ... וכן הלאה עם 40 שימושים נוספים ב־Canvas

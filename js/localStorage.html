@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1"></h1>
+    <input type="text" id="input">
+    <button id="btn">click me</button>
+</body>
+<script>
+    function event1() {
+        let save_btn = document.getElementById("btn");
+        save_btn.addEventListener("click", () => {
+            let input_val = document.getElementById("input").value;
+            localStorage.setItem("user1", input_val);
+            console.log(input_val);
+        });
+    }
+    function check() {
+        if (localStorage.getItem("user1")) {
+            let user = localStorage.getItem("user1");
+            document.getElementById("h1").innerHTML = `welcome ${user1}`;
+        }
+    }
+    event1();
+    check();
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+<link rel="stylesheet" href="./myTestStyle.css">
+<body>
+    <div class="idDiv">simple div</div>
+    <div id="idDiv">simple div</div>
+    <h1>h1 - The biggest</h1>
+    <h6>h2 - The smallest</h6>
+
+    <div>div - catch all the rows</div>
+
+    <span>span 1 - catch just his place an the rows</span>
+    <span>span 2 - realy????????????</span>
+
+    <ul>
+        <li>Emanuel</li>
+        <li>Avraham</li>
+    </ul>
+
+    <ol>
+        <li>Shmuel </li>
+        <li>Eliyau</li>
+    </ol>
+
+    <a href="https://www.jdn.co.il/" target="_blank">
+        <img src="https://www.jdn.co.il/wp-content/uploads/2022/01/logosite.png" alt="">
+    </a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Family</th>
+                <th>phone number</th>
+                <th>E-mail</th>
+            </tr>
+            <tr>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td >1</td>
+                <td>
+                    <input  type="text" id="name">
+                </td>
+                <td>
+                    <input type="text" name="" id="firstTd" >
+                </td>
+                <td>
+                    <input type="number" name="" id="">
+                </td>
+                <td>
+                    <input type="email" name="" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button onclick="printValue()">Sand form</button>
+
+    <script>
+        function printValue() {
+          const input = document.getElementById("name");
+          const value = input.value;
+          document.getElementById("output").innerHTML = value+ " טירן";
+        }
+        </script>
+        <h2 id="output"></h2>
+        <h2 id="output2"></h2>
+</body>
+
+</html>

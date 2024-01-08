@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        text-align: center;
+        font-family: calibri;
+    }
+
+    @keyframes colors {
+        0% {
+            color: red;
+        }
+
+        20% {
+            color: rgb(0, 106, 255);
+        }
+
+        80% {
+            color: rgb(255, 162, 0);
+        }
+
+        100% {
+            color: rgb(21, 113, 0);
+        }
+    }
+
+    .s div {
+        font-weight: bolder;
+        margin-top: 50px;
+        display: inline-block;
+        font-size: 7vw;
+        animation: colors;
+        animation-duration: 5s;
+        /* animation-delay: 2s; */
+        animation-iteration-count: infinite;
+    }
+
+    .gra div {
+        /* position: relative;
+    position: fixed; */
+        height: 1000px;
+        background: linear-gradient(to right, red, orange, yellow, blue, green);
+    }
+    #reka {
+        background-image: url('https://matnasata.org.il/productImages2/32/2019/10/03/image1570115472.jpg');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+        position: absolute;
+        opacity: 0.7;
+        z-index: -1;
+        position: fixed;
+        width: 100%;
+        top: 0px;
+        bottom: 0px;
+        /* filter: blur(30px); */
+    }
+
+    @keyframes music {
+        0% {
+            padding-top: 0px;
+        }
+
+        20% {
+            padding-top: 50px;
+        }
+
+        100% {
+            padding-top: 5px;
+        }
+    }
+
+    .de1 {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        top: 150px;
+        margin: 10px;
+    }
+
+    .de1:hover {
+        transform: translateY(-50px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .de2 {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        top: 150px;
+        margin: 10px;
+    }
+
+    .de2:hover {
+        transform: translateY(-50px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .de3 {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        top: 150px;
+        margin: 10px;
+    }
+
+    .de3:hover {
+        transform: translateY(-50px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .de4 {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        top: 150px;
+        margin: 10px;
+    }
+
+    .de4:hover {
+        transform: translateY(50px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .de5 {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        top: 150px;
+        margin: 10px;
+    }
+
+    .de5:hover {
+        transform: translateY(50px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .mg {
+        width: 200px;
+        height: auto;
+        animation: music;
+        animation-duration: 5s;
+        /* animation-delay: 2s; */
+        animation-iteration-count: infinite;
+    }
+
+    .au {
+        width: 200px;
+        position: absolute;
+        padding: 10px 0 10px;
+        background-color: black;
+        height: 50px;
+        left: 0;
+        border-radius: 0 0 15% 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+</style>
+
+<body>
+    <div id="reka"></div>
+    <div class="s">
+        <div>E</div>
+        <div>m</div>
+        <div>a</div>
+        <div>n</div>
+        <div>u</div>
+        <div>e</div>
+        <div>l</div>
+        <div>M</div>
+        <div>u</div>
+        <div>s</div>
+        <div>i</div>
+        <div>c</div>
+    </div>
+    <div class="de1">
+        <img class="mg" src="https://media.kcm.fm/upload/pictures/7/7112.jpg" alt=""> <br>
+        <audio controls class="au">
+            <source src="https://www.chasidinews.com/wp-content/uploads/2023/07/Michoel-Pruzansky-Pray-Acapella.mp3"
+            type="audio/mp3">
+        </audio> <br>
+    </div>
+    <div class="de2">
+        <img class="mg" src="//media.kcm.fm/upload/pictures/5/5196.jpg" alt=""> <br>
+        <audio controls class="au">
+            <source src="https://www.chasidinews.com/wp-content/uploads/2023/07/Michoel-Pruzansky-Pray-Acapella.mp3"
+            type="audio/mp3">
+        </audio> <br>
+    </div>
+    <div class="de3">
+        <img class="mg" src="//media.kcm.fm/upload/pictures/5/5171.jpg" alt=""> <br>
+        <audio controls class="au">
+            <source src="https://www.chasidinews.com/wp-content/uploads/2023/07/Michoel-Pruzansky-Pray-Acapella.mp3"
+            type="audio/mp3">
+        </audio> <br>
+    </div>
+    <br>
+    <div class="de4">
+        <img class="mg" src="//media.kcm.fm/upload/pictures/7/7115.jpg" alt=""> <br>
+        <audio controls class="au">
+            <source src="https://www.chasidinews.com/wp-content/uploads/2023/07/Michoel-Pruzansky-Pray-Acapella.mp3"
+            type="audio/mp3">
+        </audio>
+    </div>
+    <div class="de5">
+        <img class="mg" src="//media.kcm.fm/upload/pictures/7/7125.jpg" alt=""> <br>
+        <audio controls class="au">
+            <source src="https://www.chasidinews.com/wp-content/uploads/2023/07/Michoel-Pruzansky-Pray-Acapella.mp3"
+            type="audio/mp3">
+        </audio>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<div class="gra">
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  const arr = [
+    {
+      name: "Best Whitehead",
+      gender: "male",
+      age: 33
+    },
+    {
+      name: "Bettie Moses",
+      gender: "female",
+      age: 22
+    },
+    {
+      name: "Enid Holland",
+      gender: "female",
+      age: 33
+    },
+    {
+      name: "Alvarez Rios",
+      gender: "male",
+      age: 23
+    },
+    {
+      name: "Rose Burt",
+      gender: "male",
+      age: 25
+    },
+    {
+      name: "Robbie Bettie",
+      gender: "female",
+      age: 31
+    },
+    {
+      name: "Wilkins Day",
+      gender: "male",
+      age: 30
+    },
+    {
+      name: "Pierce Carter",
+      gender: "male",
+      age: 21
+    },
+    {
+      name: "Sawyer Collier",
+      gender: "male",
+      age: 36
+    },
+    {
+      name: "Bettie Johns",
+      gender: "male",
+      age: 35
+    }
+  ];
+
+
+  const user = arr.find(user => user.name === "Bettie Johns"); // returm the first object that her name is Bettie Johns;
+  const user1 = arr.find(user => user.name === "hduigsui45456"); // returm undifind if no any name like that;
+  console.log(user);
+  console.log(user1);
+
+  const indexUser = arr.findIndex(user => user.name === "Bettie Johns"); // returm the first index that her name is Bettie Johns;
+  const indexUndifind = arr.findIndex(user => user.name === "hduigsui45456"); // returm -1 if no any name like that;
+  console.log(indexUser);
+  console.log(indexUndifind);
+
+  const users = arr.filter(user => user.gender === "male" && user.age === 35); // returm arr of all the object that have them male's and her age is 35;
+  console.log(users);
+
+  const onlyUser = arr.map(user => user.name) //  מחזיר מערך של שמות מהמערך שלמעלה ,אותו אורך בדיוק
+  console.log("onlyUser:" + onlyUser);
+
+  const objOnlyUser = arr.map(user => { // מחזיר מערך של אובייקטים המכיל את השם והגיל של היוסר
+    return {
+      name: user.name,
+      age:user.age
+    }
+  })
+  console.log(uobjOnlyUsersers);
+
+
+
+  const isInRange = arr.every(user => user.age <= 40 && user.age >= 20); // מחזיר טרו אם הגילאים של כל היוסרס הם בין 20 ל40
+  console.log(isInRange);
+  
+  const isInRange2 = arr.some(user => user.age <= 40 && user.age >= 20); // מחזיר טרו אם יש לפחות אחד שהוא בגיל שבין 20 ל40
+  console.log(isInRange2);
+
+
+</script>
+
+</html>
